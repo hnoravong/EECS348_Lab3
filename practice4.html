@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <form method="get">
+    Enter a number: <input type="text" name="n">
+    <input type="submit" value="Generate">
+  </form>
+
+  <?php
+  if (isset($_GET['n']) && is_numeric($_GET['n'])) {
+      $n = (int)$_GET['n'];
+      echo "<table border='1'>";
+      // header row
+      echo "<tr><td></td>";
+      for ($col = 1; $col <= $n; $col++) {
+          echo "<td><b>$col</b></td>";
+      }
+      echo "</tr>";
+      // data rows
+      for ($row = 1; $row <= $n; $row++) {
+          echo "<tr><td><b>$row</b></td>";
+          for ($col = 1; $col <= $n; $col++) {
+              echo "<td>" . ($row * $col) . "</td>";
+          }
+          echo "</tr>";
+      }
+      echo "</table>";
+  }
+  ?>
+</body>
+</html>
